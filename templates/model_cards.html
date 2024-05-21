@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Card for Breast Cancer Wisconsin (Diagnostic) Dataset</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        body h2 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        body p {
+            font-size: 14.5px;
+        }
+
+        body li {
+            font-size: 14.5px;
+        }
+
+        #placeholder_img {
+            height: 200px;
+            background-color: #FF8A00;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #placeholder_img img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        #sidebar {
+            width: 980px;
+            padding: 25px;
+            
+            height: 100vh;
+            overflow: auto;
+        }
+
+        #main {
+            flex-grow: 1;
+            padding: 20px;
+            padding-right: 50px;
+            overflow: auto;
+            line-height:24px;
+            letter-spacing: 0.3px;
+        }
+
+        .section {
+            margin-bottom: 10px;
+        }
+
+        .section-header {
+            position: absolute;
+            display: flex; 
+            font-family: Arial, sans-serif; 
+            width: 85%; 
+            left: 6%;
+            align-items: center;
+        }
+
+        .box-header {
+            width: 16%; 
+            background-color: #FF8A00; 
+            color: white; 
+            padding: 5px 20px; 
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px; 
+            background-color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 95.5%;
+                border-bottom: 1px solid #e5e5e5;
+                padding: 15px;
+                background-color: #FF8A00;
+                height: 150px;
+                color: white;
+                margin-bottom: 15px;
+            }
+
+            #main {
+                margin-left: 0;
+            }
+
+            #placeholder_img {
+                width: 200px;
+                height: auto;
+                margin: 0 auto 20px;
+                margin-bottom: 20px;
+            }
+
+            body h2 {
+                font-size: 20px;
+            }
+
+            body p {
+                font-size: 14px;
+            }
+
+            body li {
+                font-size: 14px;
+            }
+
+            .table_center img {
+                max-width: 100%;
+                margin: 1%;
+            }
+
+            .section-header {
+                position: absolute;
+                display: flex; 
+                font-family: Arial, sans-serif; 
+                width: 100%; 
+                left: 0;
+                align-items: center;
+            }
+
+            .box-header {
+                width: 30%; 
+                background-color: #FF8A00; 
+                color: white; 
+                padding: 5px 20px;
+                font-size: 16px;
+                text-align: left;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div id="placeholder_img">
+            <img src="DK_LOGO_R_WHT.png" alt="Company Logo">
+        </div>
+        <h2> SST Model Cards</h2>
+        <!--<img src="https://via.placeholder.com/150" alt="Company Logo">-->
+
+        <p>Find the Data Cards <a href="#datacards">here</a></p>
+    </div>
+
+    <div id="main">
+        <div class="section" id="overview">
+            <h2>Overview</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            <h4>Version</h4>
+                <ul>
+                    {% for version in overview.version %}
+                        <li><strong>Name:</strong> {{ version.name }} </li>
+                        <li><strong>Date:</strong> {{ version.date }}</li>
+                    {% endfor %}
+                </ul>
+            <h4>Owners</h4>
+                <ul>
+                    {% for owner in overview.owners %}
+                    <li><strong>Name:</strong> {{ owner.name }}, <strong>Contact:</strong> {{ owner.contact }}</li>
+                    {% endfor %}
+                </ul>
+
+            <h4>References</h4>
+                <ul>
+                    {% for reference in overview.references %}
+                    <li> {{reference}} </li>
+                    {% endfor %}
+                </ul> 
+        </div>
+        <div class="section-header">
+            <div class="box-header">
+                Model Considerations
+            </div>
+            <div class="line"></div>
+        </div>
+        <br>
+        
+        <div class="section" id="model_considerations">
+            <h2>Intended Users</h2>
+                <ul>
+                    {% for users in considerations.intended_users %}
+                        <li> {{users}} </li>
+                    {% endfor %}
+                </ul>
+            <h2>Use Cases</h2>
+                <ul>
+                    {% for cases in considerations.use_cases %}
+                        <li> {{ cases }} </li>
+                    {% endfor %}
+                </ul>
+            <h2>Limitations</h2>
+                <ul>
+                    {% for limitations in considerations.limitations %}
+                        <li> {{ limitations }} </li>
+                    {% endfor %}
+                </ul>
+        </div>
+        <div class="section-header">
+            <div class = "box-header">
+                Model Parameters
+            </div>
+            <div class="line"></div>
+        </div>
+        <br>
+        <div class="section" id="model_parameters">
+            <h2>Outcome Definition</h2>
+                <p>
+                    {{parameters.outcome_definition}} Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            <h4>Model Optimization Metric</h4>
+                <ul>
+                    {% for optimization_metric in parameters.model_optimization_metric %}
+                        <li> <strong>Metric:</strong> {{optimization_metric.metric}} </li>
+                        <li> <strong>Description:</strong> {{optimization_metric.description}} </li>
+                    {% endfor %}
+                </ul>
+            <h2>Feature Selection</h2>
+                {% from "table_macros.html" import render_table as render_features_table %}
+                {{ render_features_table(parameters.get_table_data()) }}
+        </div>
+        <div class="section-header">
+            <div class = "box-header">
+                Model Results
+            </div>
+            <div class="line"></div>
+        </div>
+        <br>
+        <div class="section" id="model_results">
+            <h2>Feature Importance</h2>
+                {% from "image_macros.html" import render_image_with_description as render_features_image %}
+                {{ render_features_image(model_results.img_src, model_results.description) }}
+
+            <h4>Performance Metric</h4>
+                {% from "table_macros.html" import render_table as render_features_table %}
+                {{ render_features_table(model_results.performance_metrics) }}
+            <br>
+                {% for plot_assets in model_results.model_optimization_metric %}
+                    {% from "macro_plot_container.html" import image_with_description as render_plot %}
+                    {{ render_plot(plot_assets.img_base64, plot_assets.description) }}
+                {% endfor %}
+            
+        </div>
+        <div class="section-header">
+            <div class = "box-header">
+                Ethical Considerations
+            </div>
+            <div class="line"></div>
+        </div>
+        <br>
+    </div>
+</body>
+</html>

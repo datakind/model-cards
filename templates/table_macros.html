@@ -1,0 +1,17 @@
+{% macro render_table(table_data) %}
+    <table class="table_center" id="features_table">
+        <tr>
+            {% for header in table_data.keys() %}
+            <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+        {% set num_rows = (table_data.values() | map('length') | max) %}
+        {% for i in range(num_rows) %}
+            <tr>
+                {% for values in table_data.values() %}
+                    <td>{{ values[i] if i < values|length else '' }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endmacro %}

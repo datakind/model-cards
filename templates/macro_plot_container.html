@@ -1,0 +1,13 @@
+{% macro image_with_description(img_src, description) %}
+    <div style="position: relative; display: flex; align-items: center; border: 1px solid #ccc; padding: 20px; border-radius: 10px; margin: 20px;">
+        <div style="position: absolute; top: -10px; left: 20px; background-color: white; border: 1px solid #ccc; padding: 5px 10px; font-family: Arial, sans-serif; font-size: 14px;">
+            {{img_src}}
+        </div>
+        <div style="width: 90%; height: 300px; background: url('https://via.placeholder.com/300x180.png?text=Image+Placeholder') no-repeat center center; background-size: cover; border: 1px solid #ccc;">
+            <img src="data:image/jpeg;base64,{{img_src}}" width="100%" height="100%" alt="Description Image">
+        </div>
+        <div style="width:70%; margin-left: 20px; font-family: Arial, sans-serif; font-size: 14px; color: #333;">
+            <p>{{ description }}</p>
+        </div>
+    </div>
+{% endmacro %}
